@@ -352,25 +352,11 @@ def read_data(building_name):
         'context_b_data': context_b_data,
     }
 
-    return save_dict
-
-
-def combine_multiple_buildings_data():
-    df_list = []
-    for building_name in multiple_building_names:
-        this_df = read_data(building_name).get('df')
-        df_list.append(this_df)
-
-    final_df = pd.concat(df_list)
-
-    save_dict = {
-        'df': final_df
-    }
-
-    with open('./tmp_pkl_data/{}_data_dict.pkl'.format(train_model_name), 'wb') as w:
+    with open('./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(building_name, context_a, context_b), 'wb') as w:
         pickle.dump(save_dict, w)
-    print('data saved at: ./tmp_pkl_data/{}_data_dict.pkl'.format(train_model_name))
+    print('data saved at: ./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(building_name, context_a, context_b))
 
 
 if __name__ == '__main__':
-    combine_multiple_buildings_data()
+    for building_name in multiple_building_names:
+        read_data(building_name)

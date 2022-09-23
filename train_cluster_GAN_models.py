@@ -1,24 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-
-@file: original_cop_prediction.py
-@time: 2021/5/19 下午6:46
-@desc: 纯子木IJCAI 19的复现
-
-
-子木这篇，本质还是预测cop
-task definition：就是对整体 dataset按照metadata划分
-
-可update的点：
-
-###目前精度差的原因分析
-0. 调参
-1. metadata，
-    1.1 ijcai paper里面的一些看似重要的metadata我没有，我的metadata是从港岛数据里面自己design的
-    1.2人工选择需要再调，e.g., 引入每天的时间分段，chillerName这个可以干掉
-2. 指标不一致：子木是Error Rate (ER), Root-mean-square er- ror (RMSE)；我就是简单平均误差
-
+1. 选定一个target building和一个context转换的情景（context 1 -> 4）
+2. 手上有的数据就是target building的context 1 以及其他楼的context 1 和 4 的数据
+3. 要做的就是从其他楼的context 1 和 4 中筛选出能train出对于target building效果最好的GAN的数据
+4. 目前能做的就是用target building的context 1 对其他楼的context 1 数据进行筛选（聚类 + 相关性）
 """
 import pandas as pd
 import numpy as np

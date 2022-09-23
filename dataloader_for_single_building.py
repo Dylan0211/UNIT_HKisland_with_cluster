@@ -309,7 +309,7 @@ def one_hot(data, feature):
 
 def read_data():
     # load data
-    csv_path = './raw_data/{}.csv'.format(single_building_name)
+    csv_path = './raw_data/{}.csv'.format(target_building_name)
     data = pd.read_csv(csv_path)
 
     df = make_big_df(data=data)
@@ -352,9 +352,9 @@ def read_data():
         'context_b_data': context_b_data,
     }
 
-    with open('./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(single_building_name, context_a, context_b), 'wb') as w:
+    with open('./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(target_building_name, context_a, context_b), 'wb') as w:
         pickle.dump(save_dict, w)
-    print('data saved at: ./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(single_building_name, context_a, context_b))
+    print('data saved at: ./tmp_pkl_data/{}_ashrae_{}_to_{}_data_dict.pkl'.format(target_building_name, context_a, context_b))
 
 
 if __name__ == '__main__':

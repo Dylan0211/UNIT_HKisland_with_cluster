@@ -1,6 +1,6 @@
 dis_learning_rate = 0.0001
 gen_learning_rate = 0.001
-num_epochs = 200
+num_epochs = 100
 batch_size = 64
 train_size = 0.5
 
@@ -25,15 +25,7 @@ n_clusters = 3
 context_a = 1
 context_b = 4
 
-multiple_building_names = ['OIE']
-train_model_name = '_'.join(multiple_building_names)
-
-single_building_name = 'OIE'
-
-# test
-test_context_a = 1
-test_context_b = 4
-test_building_name = 'OIE'
-test_model_name = 'OIE'
+multiple_building_names = ['OIE', 'CP4', 'DEH']
+target_building_name = 'LIH'
 
 
